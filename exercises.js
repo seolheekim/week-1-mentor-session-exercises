@@ -7,6 +7,9 @@
  */
 
 function firstReverse(str){
+  if(typeof str !== "string"){
+    return null;
+  }
   var splitString = str.split("");
   var reverseArray = splitString.reverse();
   var joinArray = reverseArray.join("");
@@ -22,7 +25,19 @@ function firstReverse(str){
 }
 console.log(firstReverse("cat"));
 
+-------- for loop ---------
+
+var firstReverse(str){
+  var firstReverse = "";
+  for (var i = str.length -1; i >= 0; i--) {
+    firstReverse += str[i];
+  
+  }
+  return firstReversen
+}
+
 */
+
 
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
@@ -33,6 +48,9 @@ console.log(firstReverse("cat"));
  */
 
 function alphaOrder(str){
+  if(typeof str !== "string"){
+    return null;
+  }
   var splitString = str.split("");
   var sortArray = splitString.sort();
   var joinArray = sortArray.join("");
@@ -58,22 +76,22 @@ console.log(alphaOrder("cats"));
  * ie: "oreo" => 3
  */
 
-function vowelCount(str) 
-{
+function vowelCount(str) {
+  if(typeof str !== "string"){
+    return null;
+  }
+
   var vowels = "aeiou";
   var count = 0;
 
 
-  for(var i = 0; i<str.length; i++)
-  {
+  for(var i = 0; i<str.length; i++){
   
-    if (vowels.indexOf(str[i]) !== -1)
-    {
+    if (vowels.indexOf(str[i]) !== -1){
       count += 1;
     }
     
-  }
-  return count;
+  }return count;
 
 }
 console.log(vowelCount("i love ice cream"));
@@ -89,13 +107,14 @@ console.log(vowelCount("i love ice cream"));
  * ie: 68 => 1:8
  */
 
- function timeConvert(n) {
-var num = n;
-var hours = (num / 60);
-var rhours = Math.floor(hours);
-var minutes = (hours - rhours) * 60;
-var rminutes = Math.round(minutes);
-return rhours + ":" + rminutes;
+ function timeConvert(str) {
+  if(typeof str !== "string"){
+    var hour = Math.floor(str/60);
+    var min = str - (hour*60);
+    return hour + ":" + min;
+  } else {
+    return null;
+  }
 }
 
 console.log(timeConvert(200));
@@ -110,6 +129,9 @@ console.log(timeConvert(200));
  */
 
 function repeatString(str, num){
+  if(typeof str !== "string"){
+    return null;
+  }
   return (new Array(num + 1)).join(str);
 
 }console.log(repeatString("work", 5));
@@ -130,9 +152,9 @@ function repeatString(str, num){
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatString,
 }
